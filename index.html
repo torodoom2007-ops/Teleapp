@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#061426">
+<title>BizMaster — Social Growth</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#dashboard" aria-label="BizMaster">
+      <span class="brand-mark">B<span>✦</span></span><span><b>Biz<span>Master</span></b><small>YOUR BUSINESS • OUR MISSION</small></span>
+    </a>
+    <div class="side-label">סביבת עבודה</div>
+    <nav class="nav">
+      <a class="nav-link active" href="#dashboard" data-page="dashboard"><i>⌂</i> לוח בקרה</a>
+      <a class="nav-link" href="#create" data-page="create"><i>✦</i> יצירת קמפיין</a>
+      <a class="nav-link" href="#accounts" data-page="accounts"><i>◎</i> חשבונות ורשתות</a>
+      <a class="nav-link" href="#campaigns" data-page="campaigns"><i>▤</i> הקמפיינים שלי</a>
+      <a class="nav-link" href="#analytics" data-page="analytics"><i>▥</i> נתונים וניתוח</a>
+      <a class="nav-link" href="#premium" data-page="premium"><i>♛</i> Premium</a>
+      <a class="nav-link" href="#settings" data-page="settings"><i>⚙</i> הגדרות</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="mini-status"><span class="live-dot"></span><span>המערכת פעילה</span><b>LIVE</b></div>
+      <div class="user-mini"><div class="avatar">TM</div><div><b>מנהל החשבון</b><small>תוכנית Free</small></div><button class="icon-button" title="הגדרות" onclick="navigate('settings')">⚙</button></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-button menu-toggle" id="menuToggle" aria-label="פתח תפריט">☰</button>
+      <div class="crumb"><span>BizMaster</span><b>/</b><strong id="pageCrumb">לוח בקרה</strong></div>
+      <div class="top-actions"><span class="status-pill"><i></i> כל המערכות תקינות</span><button class="icon-button" id="notifyBtn" title="התראות">♧<em></em></button><button class="top-avatar" onclick="navigate('settings')">TM</button></div>
+    </header>
+
+    <section class="page active" id="page-dashboard">
+      <div class="welcome-row"><div><div class="eyebrow"><span class="eyebrow-line"></span> מרכז השליטה שלך</div><h1>בוקר טוב, <span>מנהל!</span></h1><p class="muted">כל הרשתות החברתיות שלך במקום אחד. בוא נצמיח את הנוכחות הדיגיטלית שלך.</p></div><button class="primary-btn" onclick="navigate('create')"><span>＋</span> קמפיין חדש</button></div>
+      <div class="hero-card">
+        <div class="hero-copy"><div class="hero-tag"><span>✦</span> SMART SOCIAL TOOLS</div><h2>הנוכחות שלך.<br><span>הצמיחה שלך.</span></h2><p>נהל את הפעילות החברתית שלך בצורה חכמה, מסודרת ומקצועית — ממקום אחד.</p><button class="hero-btn" onclick="navigate('create')">יצירת קמפיין <span>←</span></button></div>
+        <div class="hero-orbit"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-core">B<span>✦</span></div><div class="float-icon fb">f</div><div class="float-icon ig">◎</div><div class="float-icon tt">♪</div><div class="float-icon tg">➤</div><div class="orbit-caption">SOCIAL GROWTH<br><small>ALL IN ONE PLACE</small></div></div>
+      </div>
+      <div class="section-heading"><div><h2>סקירה כללית</h2><p>סיכום הפעילות בחשבון</p></div><button class="outline-btn" onclick="navigate('analytics')">צפה בנתונים ←</button></div>
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-top"><span>סה״כ מנויים בקמפיינים</span><span class="stat-icon cyan">♙</span></div><div class="stat-number" id="statFollowers">12,840</div><div class="stat-foot"><span class="trend">↗ 12.8%</span><span>לעומת התקופה הקודמת</span></div><div class="sparkline cyan-line"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="stat-card"><div class="stat-top"><span>קמפיינים פעילים</span><span class="stat-icon purple">✦</span></div><div class="stat-number" id="statCampaigns">8</div><div class="stat-foot"><span class="trend">↗ 2 חדשים</span><span>השבוע</span></div><div class="sparkline purple-line"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="stat-card"><div class="stat-top"><span>רשתות מחוברות</span><span class="stat-icon green">⌘</span></div><div class="stat-number">4<span class="number-small"> / 4</span></div><div class="stat-foot"><span class="trend">● תקין</span><span>כל הרשתות מחוברות</span></div><div class="platform-dots"><span class="fb-bg">f</span><span class="ig-bg">◎</span><span class="tt-bg">♪</span><span class="tg-bg">➤</span></div></article>
+        <article class="stat-card"><div class="stat-top"><span>ציון פעילות</span><span class="stat-icon gold">♛</span></div><div class="stat-number">94<span class="number-small">/100</span></div><div class="stat-foot"><span class="trend">מצוין</span><span>החשבון שלך במגמת עלייה</span></div><div class="score-bar"><i></i></div></article>
+      </div>
+      <div class="dashboard-columns">
+        <div class="panel"><div class="panel-head"><div><h3>פעילות אחרונה</h3><p>מעקב אחר העדכונים שלך</p></div><button class="text-btn" onclick="navigate('campaigns')">הצג הכול ←</button></div><div class="activity-list" id="activityList"><div class="activity-row"><span class="platform-icon instagram">◎</span><div class="activity-text"><b>קמפיין Instagram</b><small>הושלם בהצלחה · לפני 12 דקות</small></div><span class="success-badge">הושלם</span></div><div class="activity-row"><span class="platform-icon telegram">➤</span><div class="activity-text"><b>קמפיין Telegram</b><small>בתהליך · לפני 35 דקות</small></div><span class="running-badge">פעיל</span></div><div class="activity-row"><span class="platform-icon tiktok">♪</span><div class="activity-text"><b>קמפיין TikTok</b><small>נוצר היום · לפני שעה</small></div><span class="success-badge">הושלם</span></div><div class="activity-row"><span class="platform-icon facebook">f</span><div class="activity-text"><b>קמפיין Facebook</b><small>נוצר אתמול</small></div><span class="success-badge">הושלם</span></div></div></div>
+        <div class="panel network-panel"><div class="panel-head"><div><h3>הרשתות שלי</h3><p>ניהול מהיר של הפלטפורמות</p></div><button class="text-btn" onclick="navigate('accounts')">ניהול ←</button></div><div class="network-list"><div class="network-row"><span class="platform-icon facebook">f</span><div><b>Facebook</b><small>מחובר לחשבון</small></div><span class="connected"><i></i> מחובר</span></div><div class="network-row"><span class="platform-icon instagram">◎</span><div><b>Instagram</b><small>מחובר לחשבון</small></div><span class="connected"><i></i> מחובר</span></div><div class="network-row"><span class="platform-icon tiktok">♪</span><div><b>TikTok</b><small>מחובר לחשבון</small></div><span class="connected"><i></i> מחובר</span></div><div class="network-row"><span class="platform-icon telegram">➤</span><div><b>Telegram</b><small>מחובר לחשבון</small></div><span class="connected"><i></i> מחובר</span></div></div></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-create">
+      <div class="page-title"><div class="eyebrow">SMART CAMPAIGN BUILDER</div><h1>יצירת <span>קמפיין חדש</span></h1><p class="muted">בחר רשת, הגדר יעד והתאם את הקמפיין לצרכים שלך.</p></div>
+      <div class="wizard-layout"><div class="panel form-panel"><div class="stepper"><div class="step active"><b>1</b><span>פלטפורמה</span></div><i></i><div class="step"><b>2</b><span>הגדרות</span></div><i></i><div class="step"><b>3</b><span>אישור</span></div></div>
+        <form id="campaignForm"><label class="field-label">בחר רשת חברתית</label><div class="platform-picker">
+          <label class="platform-choice selected"><input type="radio" name="platform" value="Instagram" checked><span class="platform-icon instagram">◎</span><b>Instagram</b><small>עוקבים ואינטראקציות</small></label>
+          <label class="platform-choice"><input type="radio" name="platform" value="Facebook"><span class="platform-icon facebook">f</span><b>Facebook</b><small>עמוד וקהל</small></label>
+          <label class="platform-choice"><input type="radio" name="platform" value="TikTok"><span class="platform-icon tiktok">♪</span><b>TikTok</b><small>צפיות ומעורבות</small></label>
+          <label class="platform-choice"><input type="radio" name="platform" value="Telegram"><span class="platform-icon telegram">➤</span><b>Telegram</b><small>חברים וערוצים</small></label>
+        </div>
+        <div class="form-grid"><div class="field"><label for="campaignName">שם הקמפיין</label><input id="campaignName" required placeholder="למשל: צמיחת חשבון הקיץ"></div><div class="field"><label for="targetUrl">קישור לפרופיל / עמוד</label><input id="targetUrl" type="url" required placeholder="https://..."></div><div class="field"><label for="goal">סוג יעד</label><select id="goal"><option>הגדלת מספר העוקבים</option><option>הגדלת חברי ערוץ</option><option>הגדלת צפיות</option><option>הגברת מעורבות</option><option>חשיפה למותג</option></select></div><div class="field"><label for="quantity">כמות יעד</label><select id="quantity"><option value="250">250</option><option value="500" selected>500</option><option value="1000">1,000</option><option value="2500">2,500</option><option value="5000">5,000</option></select></div></div>
+        <div class="notice"><span>ⓘ</span><div><b>התאם את הקמפיין למטרות שלך</b><small>הגדרות הקמפיין יוצגו בסיכום לפני האישור.</small></div></div>
+        <div class="form-actions"><button type="button" class="outline-btn" onclick="navigate('dashboard')">ביטול</button><button type="submit" class="primary-btn">המשך לסיכום <span>←</span></button></div>
+        </form></div><aside class="panel preview-panel"><div class="preview-glow">✦</div><div class="preview-title">CAMPAIGN PREVIEW</div><h3>הקמפיין שלך,<br><span>במבט אחד.</span></h3><p>הגדר קמפיין, עקוב אחרי התקדמותו ונהל את הפעילות שלך מממשק אחד מסודר.</p><div class="preview-metric"><span>יעד הקמפיין</span><b id="previewQuantity">500</b></div><div class="preview-metric"><span>פלטפורמה</span><b id="previewPlatform">Instagram</b></div><div class="preview-metric"><span>סטטוס</span><b class="green-text">מוכן להגדרה</b></div><div class="preview-footer">BIZMASTER <span>•</span> SOCIAL TOOLS</div></aside></div>
+    </section>
+
+    <section class="page" id="page-accounts">
+      <div class="page-title"><div class="eyebrow">CONNECTED PLATFORMS</div><h1>חשבונות <span>ורשתות</span></h1><p class="muted">כל הפלטפורמות שלך מנוהלות ממקום אחד.</p></div>
+      <div class="account-grid">
+      <article class="account-card"><div class="account-top"><span class="platform-icon facebook">f</span><span class="connected"><i></i> מחובר</span></div><h3>Facebook</h3><p>נהל את הפעילות ואת הקמפיינים לעמוד שלך.</p><div class="account-meta"><span>סטטוס חשבון</span><b>פעיל</b></div><button class="outline-btn full-btn" onclick="accountAction('Facebook')">ניהול חשבון ←</button></article>
+      <article class="account-card"><div class="account-top"><span class="platform-icon instagram">◎</span><span class="connected"><i></i> מחובר</span></div><h3>Instagram</h3><p>עקוב אחר הצמיחה והפעילות בפרופיל שלך.</p><div class="account-meta"><span>סטטוס חשבון</span><b>פעיל</b></div><button class="outline-btn full-btn" onclick="accountAction('Instagram')">ניהול חשבון ←</button></article>
+      <article class="account-card"><div class="account-top"><span class="platform-icon tiktok">♪</span><span class="connected"><i></i> מחובר</span></div><h3>TikTok</h3><p>נהל יעדי צפיות, קהל ופעילות בחשבון.</p><div class="account-meta"><span>סטטוס חשבון</span><b>פעיל</b></div><button class="outline-btn full-btn" onclick="accountAction('TikTok')">ניהול חשבון ←</button></article>
+      <article class="account-card"><div class="account-top"><span class="platform-icon telegram">➤</span><span class="connected"><i></i> מחובר</span></div><h3>Telegram</h3><p>נהל ערוצים, קבוצות ויעדי הצטרפות.</p><div class="account-meta"><span>סטטוס חשבון</span><b>פעיל</b></div><button class="outline-btn full-btn" onclick="accountAction('Telegram')">ניהול חשבון ←</button></article>
+      </div>
+      <div class="notice page-notice"><span>♧</span><div><b>אבטחת חשבון</b><small>אל תמסור את הסיסמה שלך לאף גורם. חיבור אמיתי לפלטפורמות דורש תהליך הרשאות מאובטח דרך ה־API הרשמי שלהן.</small></div></div>
+    </section>
+
+    <section class="page" id="page-campaigns">
+      <div class="page-title title-row"><div><div class="eyebrow">CAMPAIGN MANAGER</div><h1>הקמפיינים <span>שלי</span></h1><p class="muted">צפה בקמפיינים שנוצרו ונהל את הסטטוס שלהם.</p></div><button class="primary-btn" onclick="navigate('create')">＋ קמפיין חדש</button></div>
+      <div class="panel table-panel"><div class="table-toolbar"><input id="campaignSearch" placeholder="חיפוש קמפיין..." aria-label="חיפוש קמפיין"><select id="statusFilter"><option value="all">כל הסטטוסים</option><option value="פעיל">פעיל</option><option value="ממתין">ממתין</option><option value="הושלם">הושלם</option></select></div><div class="table-scroll"><table><thead><tr><th>שם הקמפיין</th><th>פלטפורמה</th><th>יעד</th><th>התקדמות</th><th>סטטוס</th><th>פעולות</th></tr></thead><tbody id="campaignRows"></tbody></table></div><div class="empty-state" id="emptyState" hidden>לא נמצאו קמפיינים מתאימים.</div></div>
+    </section>
+
+    <section class="page" id="page-analytics">
+      <div class="page-title"><div class="eyebrow">PERFORMANCE INSIGHTS</div><h1>נתונים <span>וניתוח</span></h1><p class="muted">סקירה ויזואלית של הפעילות שלך לאורך זמן.</p></div>
+      <div class="stats-grid analytics-stats"><article class="stat-card"><div class="stat-top"><span>חשיפות</span><span class="stat-icon cyan">◉</span></div><div class="stat-number">84.2K</div><div class="stat-foot"><span class="trend">↗ 18.4%</span><span>30 ימים אחרונים</span></div></article><article class="stat-card"><div class="stat-top"><span>מעורבות</span><span class="stat-icon purple">✧</span></div><div class="stat-number">6.8K</div><div class="stat-foot"><span class="trend">↗ 9.2%</span><span>30 ימים אחרונים</span></div></article><article class="stat-card"><div class="stat-top"><span>קמפיינים</span><span class="stat-icon green">▤</span></div><div class="stat-number" id="analyticsCampaigns">8</div><div class="stat-foot"><span>כל הקמפיינים בחשבון</span></div></article><article class="stat-card"><div class="stat-top"><span>ציון חשבון</span><span class="stat-icon gold">♛</span></div><div class="stat-number">94<span class="number-small">/100</span></div><div class="stat-foot"><span class="trend">מצוין</span><span>מדד פעילות</span></div></article></div>
+      <div class="panel chart-panel"><div class="panel-head"><div><h3>מגמת פעילות</h3><p>מדד פעילות לדוגמה לפי ימים</p></div><select id="chartPeriod"><option value="7">7 ימים</option><option value="30">30 ימים</option><option value="90">90 ימים</option></select></div><div class="chart-legend"><span><i></i> פעילות</span><span><i></i> יעד</span></div><div class="chart" id="chart"><div class="chart-grid"><i></i><i></i><i></i><i></i></div><div class="chart-bars"></div><div class="chart-labels"></div></div><p class="chart-note">הנתונים במסך זה הם נתוני תצוגה מקדימה. חיבור למדדים אמיתיים זמין לאחר שילוב API והרשאות הפלטפורמות.</p></div>
+    </section>
+
+    <section class="page" id="page-premium">
+      <div class="page-title centered"><div class="eyebrow">BIZMASTER PREMIUM</div><h1>פתח את <span>כל האפשרויות</span></h1><p class="muted">יותר כלים, יותר שליטה, חוויית ניהול מתקדמת.</p></div>
+      <div class="plans"><article class="plan-card"><div class="plan-label">מתחילים</div><h2>Free</h2><p>כל הכלים הבסיסיים במקום אחד.</p><div class="plan-price">₪0 <small>/ לחודש</small></div><ul><li>✓ לוח בקרה אישי</li><li>✓ ניהול 4 פלטפורמות</li><li>✓ יצירת קמפיינים</li><li>✓ סקירה בסיסית</li></ul><button class="outline-btn full-btn" onclick="toast('התוכנית הנוכחית שלך היא Free')">התוכנית הנוכחית</button></article><article class="plan-card featured-plan"><div class="popular">הבחירה המומלצת</div><div class="plan-label gold-text">למשתמשים מתקדמים</div><h2>Premium <span>♛</span></h2><p>שליטה מלאה בכלי הניהול המתקדמים.</p><div class="plan-price">₪49 <small>/ לחודש</small></div><ul><li>✓ לוחות בקרה מתקדמים</li><li>✓ ניתוח נתונים מורחב</li><li>✓ ניהול קמפיינים ללא הגבלה בממשק</li><li>✓ תמיכה בעדיפות גבוהה</li></ul><button class="gold-btn full-btn" onclick="toast('אפשרויות השדרוג יוגדרו בהמשך')">שדרוג ל־Premium <span>→</span></button></article></div>
+    </section>
+
+    <section class="page" id="page-settings">
+      <div class="page-title"><div class="eyebrow">ACCOUNT PREFERENCES</div><h1>הגדרות <span>חשבון</span></h1><p class="muted">התאם את סביבת העבודה להעדפות שלך.</p></div>
+      <div class="settings-layout"><div class="panel settings-panel"><h3>פרטי פרופיל</h3><p class="muted">נהל את פרטי המשתמש שלך.</p><form id="settingsForm"><div class="field"><label>שם תצוגה</label><input id="displayName" value="מנהל החשבון"></div><div class="field"><label>כתובת דוא״ל</label><input type="email" id="email" placeholder="name@example.com"></div><div class="field"><label>שפה</label><select id="language"><option value="he">עברית</option><option value="en">English</option></select></div><button class="primary-btn" type="submit">שמירת שינויים</button></form></div><div class="panel settings-panel"><h3>העדפות מערכת</h3><p class="muted">בחר אילו עדכונים לקבל.</p><label class="toggle-row"><span><b>התראות פעילות</b><small>עדכונים על שינויים בקמפיינים</small></span><input type="checkbox" checked><i></i></label><label class="toggle-row"><span><b>סיכום שבועי</b><small>סקירת נתונים פעם בשבוע</small></span><input type="checkbox" checked><i></i></label><label class="toggle-row"><span><b>מצב כהה</b><small>ממשק כהה בסגנון BizMaster</small></span><input type="checkbox" checked><i></i></label><button class="outline-btn" onclick="toast('העדפות המערכת עודכנו')">שמירת העדפות</button></div></div>
+    </section>
+    <footer class="main-footer"><span>© 2026 BizMaster</span><span>SMART TOOLS • STRONGER BUSINESS</span><a href="#settings">פרטיות והגדרות</a></footer>
+  </main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal"><button class="modal-close" id="modalClose">×</button><div class="modal-icon">✦</div><h2 id="modalTitle">אישור קמפיין</h2><p id="modalText"></p><div class="modal-actions"><button class="outline-btn" id="modalCancel">חזרה לעריכה</button><button class="primary-btn" id="modalConfirm">יצירת קמפיין</button></div></div></div>
+<script src="app.js"></script>
+</body></html>
